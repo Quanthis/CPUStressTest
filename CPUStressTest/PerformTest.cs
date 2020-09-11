@@ -34,7 +34,7 @@ namespace CPUStressTest
             return await Task.Run(() =>
             {
                 BigInteger result = 1;
-                for(BigInteger i = 1; i <= 1000000; ++i)
+                for(BigInteger i = 1; i <= 100000; ++i)
                 {
                     result *= i;
                 }

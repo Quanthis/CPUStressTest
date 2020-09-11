@@ -35,6 +35,7 @@
             this.Label_Running_Tests = new System.Windows.Forms.Label();
             this.START_TEST = new System.Windows.Forms.Button();
             this.Label_GeneralWarning = new System.Windows.Forms.Label();
+            this.Label_Test = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Label_ThreadsNoInf
@@ -101,12 +102,23 @@
             this.Label_GeneralWarning.TabIndex = 5;
             this.Label_GeneralWarning.Text = resources.GetString("Label_GeneralWarning.Text");
             // 
+            // Label_Test
+            // 
+            this.Label_Test.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Label_Test.Location = new System.Drawing.Point(45, 169);
+            this.Label_Test.Name = "Label_Test";
+            this.Label_Test.Size = new System.Drawing.Size(100, 25);
+            this.Label_Test.TabIndex = 6;
+            this.Label_Test.Text = "0";
+            this.Label_Test.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(624, 321);
+            this.Controls.Add(this.Label_Test);
             this.Controls.Add(this.Label_GeneralWarning);
             this.Controls.Add(this.START_TEST);
             this.Controls.Add(this.Label_Running_Tests);
@@ -131,6 +143,7 @@
         private System.Windows.Forms.Label Label_Running_Tests;
         private System.Windows.Forms.Button START_TEST;
         private System.Windows.Forms.Label Label_GeneralWarning;
+        private System.Windows.Forms.Label Label_Test;
     }
 }
 
