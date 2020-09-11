@@ -59,12 +59,20 @@ namespace CPUStressTest
 
                 if (operationSuccessfull)
                 {
-                    MessageBox.Show("Your PC has managed to finish test without turnig off! Click OK to show CPU usage report.", "Test finished! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    await showStats.OpenFile();
+                    if (MessageBox.Show("Your PC has managed to finish test without turnig off! Click OK to show CPU usage report.", "Test finished! ", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == 0)
+                    {
+                        await showStats.OpenFile();
+                    }                   
+                    
                 }
                 else
                 {
                     MessageBox.Show("There was either thread conflict or test was interrupted.", "Test failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (ChangeDisplayedValue(false) != true)
+                {
+                    MessageBox.Show("Internal Error!", "Please concact our onsite support!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
