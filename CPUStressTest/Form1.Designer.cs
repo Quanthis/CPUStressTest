@@ -90,6 +90,7 @@
             this.START_TEST.TabIndex = 4;
             this.START_TEST.Text = "Begin";
             this.START_TEST.UseVisualStyleBackColor = false;
+            this.START_TEST.Click += new System.EventHandler(this.START_TEST_Click);
             // 
             // Label_GeneralWarning
             // 

@@ -21,5 +21,10 @@ namespace CPUStressTest
         {
 
         }
+
+        private void START_TEST_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
