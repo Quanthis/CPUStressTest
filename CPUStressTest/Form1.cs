@@ -37,11 +37,23 @@ namespace CPUStressTest
 
                 bool operationSuccessfull = await TEST.Perform();
 
-                MessageBox.Show("Test finished! ", "Your PC has managed to finish test without turnig off!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (operationSuccessfull)
+                {
+                    MessageBox.Show("Test finished! ", "Your PC has managed to finish test without turnig off!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Test failed!", "There was either thread conflict or test was interrupted.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
             catch(InvalidCastException)
             {
                 MessageBox.Show("User Error!", "Number of threads may only be in range 1-65535", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Internal Error!", "Please concact our onsite support!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
