@@ -36,6 +36,7 @@
             this.START_TEST = new System.Windows.Forms.Button();
             this.Label_GeneralWarning = new System.Windows.Forms.Label();
             this.Label_Test = new System.Windows.Forms.Label();
+            this.STOP_TEST = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Label_ThreadsNoInf
@@ -55,7 +56,7 @@
             this.TextBox_NumberOfThreads.MaxLength = 5;
             this.TextBox_NumberOfThreads.MinimumSize = new System.Drawing.Size(50, 25);
             this.TextBox_NumberOfThreads.Name = "TextBox_NumberOfThreads";
-            this.TextBox_NumberOfThreads.Size = new System.Drawing.Size(50, 25);
+            this.TextBox_NumberOfThreads.Size = new System.Drawing.Size(50, 21);
             this.TextBox_NumberOfThreads.TabIndex = 1;
             this.TextBox_NumberOfThreads.Text = "1";
             // 
@@ -112,12 +113,27 @@
             this.Label_Test.Text = "0";
             this.Label_Test.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // STOP_TEST
+            // 
+            this.STOP_TEST.BackColor = System.Drawing.Color.Green;
+            this.STOP_TEST.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.STOP_TEST.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.STOP_TEST.ForeColor = System.Drawing.Color.White;
+            this.STOP_TEST.Location = new System.Drawing.Point(48, 237);
+            this.STOP_TEST.Name = "STOP_TEST";
+            this.STOP_TEST.Size = new System.Drawing.Size(118, 60);
+            this.STOP_TEST.TabIndex = 7;
+            this.STOP_TEST.Text = "BREAK";
+            this.STOP_TEST.UseVisualStyleBackColor = false;
+            this.STOP_TEST.Click += new System.EventHandler(this.STOP_TEST_Click);
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(624, 321);
+            this.Controls.Add(this.STOP_TEST);
             this.Controls.Add(this.Label_Test);
             this.Controls.Add(this.Label_GeneralWarning);
             this.Controls.Add(this.START_TEST);
@@ -144,6 +160,7 @@
         private System.Windows.Forms.Button START_TEST;
         private System.Windows.Forms.Label Label_GeneralWarning;
         private System.Windows.Forms.Label Label_Test;
+        private System.Windows.Forms.Button STOP_TEST;
     }
 }
 

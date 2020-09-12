@@ -15,10 +15,16 @@ namespace CPUStressTest
     public partial class MainScreen : Form
     {
         private ShowCPUUsage showStats = new ShowCPUUsage();
+        private List<Task<bool>> allRunningTests = new List<Task<bool>>();
+
+        private CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+        private CancellationToken canlllationToken;
 
         public MainScreen()
         {
             InitializeComponent();
+
+            canlllationToken = cancellationTokenSource.Token;
         }
 
         private async void Form1_Load(object sender, EventArgs e)
@@ -54,8 +60,13 @@ namespace CPUStressTest
                     MessageBox.Show("Internal Error!", "Please concact our onsite support!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                showStats.UpdateFile($"A test has started with amount of {threadsNo} threads.");
-                bool operationSuccessfull = await TEST.Perform();
+                _ = showStats.UpdateFile($"A test has started with amount of {threadsNo} threads.");
+
+                                
+                Task<bool> thisTask = TEST.Perform(canlllationToken);
+                allRunningTests.Add(thisTask);
+
+                bool operationSuccessfull = await thisTask;
 
                 if (operationSuccessfull)
                 {
@@ -80,6 +91,10 @@ namespace CPUStressTest
             {
                 MessageBox.Show("Number of threads may only be in range 1-65535", "User Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            catch(OperationCanceledException)
+            {
+                MessageBox.Show("Operation has been sucessfully canelled!", "User Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             catch(Exception)
             {
                 MessageBox.Show("Please concact our onsite support!", "Internal Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -102,6 +117,14 @@ namespace CPUStressTest
             Label_Running_Tests.Text = value.ToString();
 
             return true;
+        }
+
+        private void STOP_TEST_Click(object sender, EventArgs e)
+        {
+            foreach(var element in allRunningTests)
+            {
+                cancellationTokenSource.Cancel();
+            }
         }
     }
 }

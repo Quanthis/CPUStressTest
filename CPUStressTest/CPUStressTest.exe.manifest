@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CPUStressTest.exe" size="563704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CPUStressTest.exe" size="565240">
       <assemblyIdentity name="CPUStressTest" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>O+vfbXegoEjeV23Sl46FaLpDpv5CFA2r3xJ2jfR2844=</dsig:DigestValue>
+        <dsig:DigestValue>Z0okHZpWKTU8oAcEnPea9pvMrV+VjZCy/v+7sh9Ou7Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
