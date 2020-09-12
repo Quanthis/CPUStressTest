@@ -35,14 +35,17 @@
             this.Label_Running_Tests = new System.Windows.Forms.Label();
             this.START_TEST = new System.Windows.Forms.Button();
             this.Label_GeneralWarning = new System.Windows.Forms.Label();
-            this.Label_Test = new System.Windows.Forms.Label();
             this.STOP_TEST = new System.Windows.Forms.Button();
+            this.UpperBar = new System.Windows.Forms.ToolStrip();
+            this.Button_Update_Check = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.UpperBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // Label_ThreadsNoInf
             // 
             this.Label_ThreadsNoInf.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Label_ThreadsNoInf.Location = new System.Drawing.Point(12, 9);
+            this.Label_ThreadsNoInf.Location = new System.Drawing.Point(270, 37);
             this.Label_ThreadsNoInf.Name = "Label_ThreadsNoInf";
             this.Label_ThreadsNoInf.Size = new System.Drawing.Size(230, 25);
             this.Label_ThreadsNoInf.TabIndex = 0;
@@ -51,12 +54,12 @@
             // 
             // TextBox_NumberOfThreads
             // 
-            this.TextBox_NumberOfThreads.Location = new System.Drawing.Point(273, 9);
+            this.TextBox_NumberOfThreads.Location = new System.Drawing.Point(533, 37);
             this.TextBox_NumberOfThreads.MaximumSize = new System.Drawing.Size(200, 25);
             this.TextBox_NumberOfThreads.MaxLength = 5;
             this.TextBox_NumberOfThreads.MinimumSize = new System.Drawing.Size(50, 25);
             this.TextBox_NumberOfThreads.Name = "TextBox_NumberOfThreads";
-            this.TextBox_NumberOfThreads.Size = new System.Drawing.Size(50, 21);
+            this.TextBox_NumberOfThreads.Size = new System.Drawing.Size(50, 25);
             this.TextBox_NumberOfThreads.TabIndex = 1;
             this.TextBox_NumberOfThreads.Text = "1";
             // 
@@ -103,16 +106,6 @@
             this.Label_GeneralWarning.TabIndex = 5;
             this.Label_GeneralWarning.Text = resources.GetString("Label_GeneralWarning.Text");
             // 
-            // Label_Test
-            // 
-            this.Label_Test.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Label_Test.Location = new System.Drawing.Point(45, 169);
-            this.Label_Test.Name = "Label_Test";
-            this.Label_Test.Size = new System.Drawing.Size(100, 25);
-            this.Label_Test.TabIndex = 6;
-            this.Label_Test.Text = "0";
-            this.Label_Test.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // STOP_TEST
             // 
             this.STOP_TEST.BackColor = System.Drawing.Color.Green;
@@ -127,14 +120,47 @@
             this.STOP_TEST.UseVisualStyleBackColor = false;
             this.STOP_TEST.Click += new System.EventHandler(this.STOP_TEST_Click);
             // 
+            // UpperBar
+            // 
+            this.UpperBar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.UpperBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Button_Update_Check,
+            this.toolStripButton1});
+            this.UpperBar.Location = new System.Drawing.Point(0, 0);
+            this.UpperBar.Name = "UpperBar";
+            this.UpperBar.Size = new System.Drawing.Size(624, 25);
+            this.UpperBar.TabIndex = 8;
+            this.UpperBar.Text = "toolStrip1";
+            // 
+            // Button_Update_Check
+            // 
+            this.Button_Update_Check.BackColor = System.Drawing.SystemColors.Control;
+            this.Button_Update_Check.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.Button_Update_Check.ForeColor = System.Drawing.Color.Black;
+            this.Button_Update_Check.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Button_Update_Check.Name = "Button_Update_Check";
+            this.Button_Update_Check.Size = new System.Drawing.Size(110, 22);
+            this.Button_Update_Check.Text = "Check For Updates";
+            this.Button_Update_Check.Click += new System.EventHandler(this.Button_Update_Check_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(104, 22);
+            this.toolStripButton1.Text = "How do I update?";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(624, 321);
+            this.Controls.Add(this.UpperBar);
             this.Controls.Add(this.STOP_TEST);
-            this.Controls.Add(this.Label_Test);
             this.Controls.Add(this.Label_GeneralWarning);
             this.Controls.Add(this.START_TEST);
             this.Controls.Add(this.Label_Running_Tests);
@@ -144,8 +170,10 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainScreen";
-            this.Text = "CPU Stress Test (by Quanthis) v1.0";
+            this.Text = "CPU Stress Test (by Quanthis) v1.1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.UpperBar.ResumeLayout(false);
+            this.UpperBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,8 +187,10 @@
         private System.Windows.Forms.Label Label_Running_Tests;
         private System.Windows.Forms.Button START_TEST;
         private System.Windows.Forms.Label Label_GeneralWarning;
-        private System.Windows.Forms.Label Label_Test;
         private System.Windows.Forms.Button STOP_TEST;
+        private System.Windows.Forms.ToolStrip UpperBar;
+        private System.Windows.Forms.ToolStripButton Button_Update_Check;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 

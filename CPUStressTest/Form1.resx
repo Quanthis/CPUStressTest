@@ -123,6 +123,9 @@ The test if performed by calculating factiorial of number 1 000 000 asynchronusl
 Giving not actual number of threads or other than 1 may cause not equal load on CPU threads.
 Also, please do bear in mind that this process is very heavy for most processors and will definitely heat up your CPU (after all, that's one of the points of stress testing). Please do not start more than 1 test at a time without consideration.</value>
   </data>
+  <metadata name="UpperBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
