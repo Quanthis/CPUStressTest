@@ -134,6 +134,12 @@ namespace CPUStressTest
             {
                 cancellationTokenSource.Cancel();
             }
+
+            allRunningTests.Clear();
+            cancellationTokenSource.Dispose();
+
+            cancellationTokenSource = new CancellationTokenSource();
+            canlllationToken = cancellationTokenSource.Token;
         }
 
         private async void Button_Update_Check_Click(object sender, EventArgs e)
