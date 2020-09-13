@@ -38,7 +38,7 @@ namespace CPUStressTest
 
                 while (true)
                 {
-                    showStats.UpdateFile(cpuCounter.NextValue().ToString().Substring(0, 1) + "%");                    
+                    await showStats.UpdateFile(cpuCounter.NextValue().ToString().Substring(0, 1) + "%");                    
                     Thread.Sleep(500);
                 }
             });
@@ -57,26 +57,38 @@ namespace CPUStressTest
                     MessageBox.Show("Internal Error!", "Please concact our onsite support!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                _ = showStats.UpdateFile($"A test has started with amount of {threadsNo} threads.");
+                await showStats.UpdateFile($"A test has started with amount of {threadsNo} threads.");
 
                                 
                 Task<bool> thisTask = TEST.Perform(canlllationToken);
                 allRunningTests.Add(thisTask);
 
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+
                 bool operationSuccessfull = await thisTask;
+
 
                 if (operationSuccessfull)
                 {
-                    if (MessageBox.Show("Your PC has managed to finish test without turnig off! Click OK to show CPU usage report.", "Test finished! ", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == 0)
+                    await showStats.UpdateFile($"A test has ended with amount of {threadsNo} threads.");
+
+                    int elapsedTime = (int)stopwatch.ElapsedMilliseconds;
+                    int elapsedSeconds = elapsedTime / 1000;
+                    int elapsedMinutes = elapsedSeconds / 60;
+                    elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
+
+                    if (MessageBox.Show($"Your PC has managed to finish test without turnig off! Elapsed time: {elapsedMinutes} min {elapsedSeconds}s. Click OK to show CPU usage report.", "Test finished! ", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                     {
                         await showStats.OpenFile();
-                    }                   
-                    
+                    }                    
                 }
                 else
                 {
                     MessageBox.Show("There was either thread conflict or test was interrupted.", "Test failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                stopwatch.Stop();                
 
                 if (ChangeDisplayedValue(false) != true)
                 {

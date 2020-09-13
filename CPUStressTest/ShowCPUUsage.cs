@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
-using System.Windows.Forms;
-using System.Globalization;
 
 namespace CPUStressTest
 {
@@ -18,7 +16,11 @@ namespace CPUStressTest
         {
             await Task.Run(() =>
             {
-                Process.Start(PATH);
+                lock (PATH)
+                {
+                    Process.Start(PATH);
+                    Debug.WriteLine("File should open");
+                }
             });
         }
 
@@ -27,8 +29,11 @@ namespace CPUStressTest
             await Task.Run
                 (() =>
                 {
-                    FileStream fs = new FileStream(PATH, FileMode.Create);
-                    fs.Dispose();
+                    lock (PATH)
+                    {
+                        FileStream fs = new FileStream(PATH, FileMode.Create);
+                        fs.Dispose();
+                    }
                 });
         }
 
@@ -43,21 +48,26 @@ namespace CPUStressTest
                     sb.Append(" - ");
                     sb.Append(message);
                     sb.Append("\n");
-
+                    
                     using (FileStream fs = new FileStream(PATH, FileMode.Open))
                     {
-
-                        using (StreamReader sr = new StreamReader(fs, Encoding.UTF8))
+                        lock (fs)
                         {
-                            sb.Append(sr.ReadToEnd());
+                            using (StreamReader sr = new StreamReader(fs, Encoding.UTF8))
+                            {
+                                sb.Append(sr.ReadToEnd());
+                            }
                         }
                     }
 
                     using (FileStream fs = new FileStream(PATH, FileMode.Open))
                     {
-                        using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
+                        lock (fs)
                         {
-                            sw.WriteLine(sb.ToString());
+                            using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
+                            {
+                                sw.WriteLine(sb.ToString());
+                            }
                         }
                     }
                 });
