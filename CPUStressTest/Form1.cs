@@ -9,6 +9,7 @@ namespace CPUStressTest
 {
     public partial class MainScreen : Form
     {
+        #region Launch
         private ShowCPUUsage showStats = new ShowCPUUsage();
         private List<Task<bool>> allRunningTests = new List<Task<bool>>();
 
@@ -20,11 +21,12 @@ namespace CPUStressTest
             InitializeComponent();
 
             canlllationToken = cancellationTokenSource.Token;
+            CheckCPUState();
         }
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            CheckCPUState();
+
         }
 
         private async Task CheckCPUState()
@@ -41,6 +43,9 @@ namespace CPUStressTest
                 }
             });
         }
+        #endregion
+
+        #region TEST
 
         private async void START_TEST_Click(object sender, EventArgs e)
         {
@@ -108,24 +113,6 @@ namespace CPUStressTest
             }
         }
 
-        private bool ChangeDisplayedValue(bool increaseOrNot)
-        {
-            int value = Convert.ToInt32(Label_Running_Tests.Text);
-
-            if(increaseOrNot)
-            {
-                ++value;
-            }
-            else
-            {
-                --value;
-            }
-
-            Label_Running_Tests.Text = value.ToString();
-
-            return true;
-        }
-
         private void STOP_TEST_Click(object sender, EventArgs e)
         {
             foreach(var element in allRunningTests)
@@ -139,15 +126,42 @@ namespace CPUStressTest
             cancellationTokenSource = new CancellationTokenSource();
             canlllationToken = cancellationTokenSource.Token;
         }
+        #endregion
 
+        private bool ChangeDisplayedValue(bool increaseOrNot)
+        {
+            int value = Convert.ToInt32(Label_Running_Tests.Text);
+
+            if (increaseOrNot)
+            {
+                ++value;
+            }
+            else
+            {
+                --value;
+            }
+
+            Label_Running_Tests.Text = value.ToString();
+
+            return true;
+        }
+
+
+        #region ToolStripButtons
         private async void Button_Update_Check_Click(object sender, EventArgs e)
         {
             await UpdateHelper.OpenDownloadLocation();
         }
 
-        private async void toolStripButton1_Click(object sender, EventArgs e)
+        private async void Button_Open_Manual_Click(object sender, EventArgs e)
         {
             await UpdateHelper.OpenInstallationManual();
         }
+
+        private void Button_Show_Authors_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe", "https://github.com/Quanthis/CPUStressTest/graphs/contributors");
+        }
+        #endregion
     }
 }

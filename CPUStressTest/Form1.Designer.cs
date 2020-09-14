@@ -38,7 +38,8 @@
             this.STOP_TEST = new System.Windows.Forms.Button();
             this.UpperBar = new System.Windows.Forms.ToolStrip();
             this.Button_Update_Check = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.Button_Show_Authors = new System.Windows.Forms.ToolStripButton();
+            this.Button_Launch_Manual = new System.Windows.Forms.ToolStripButton();
             this.UpperBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             this.TextBox_NumberOfThreads.MaxLength = 5;
             this.TextBox_NumberOfThreads.MinimumSize = new System.Drawing.Size(50, 25);
             this.TextBox_NumberOfThreads.Name = "TextBox_NumberOfThreads";
-            this.TextBox_NumberOfThreads.Size = new System.Drawing.Size(50, 21);
+            this.TextBox_NumberOfThreads.Size = new System.Drawing.Size(50, 25);
             this.TextBox_NumberOfThreads.TabIndex = 1;
             this.TextBox_NumberOfThreads.Text = "1";
             // 
@@ -135,7 +136,8 @@
             this.UpperBar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.UpperBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Button_Update_Check,
-            this.toolStripButton1});
+            this.Button_Launch_Manual,
+            this.Button_Show_Authors});
             this.UpperBar.Location = new System.Drawing.Point(0, 0);
             this.UpperBar.Name = "UpperBar";
             this.UpperBar.Size = new System.Drawing.Size(624, 25);
@@ -153,15 +155,25 @@
             this.Button_Update_Check.Text = "Check For Updates";
             this.Button_Update_Check.Click += new System.EventHandler(this.Button_Update_Check_Click);
             // 
-            // toolStripButton1
+            // Button_Show_Authors
             // 
-            this.toolStripButton1.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(104, 22);
-            this.toolStripButton1.Text = "How do I update?";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.Button_Show_Authors.BackColor = System.Drawing.SystemColors.Control;
+            this.Button_Show_Authors.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.Button_Show_Authors.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Button_Show_Authors.Name = "Button_Show_Authors";
+            this.Button_Show_Authors.Size = new System.Drawing.Size(107, 22);
+            this.Button_Show_Authors.Text = "Code contributors";
+            this.Button_Show_Authors.Click += new System.EventHandler(this.Button_Show_Authors_Click);
+            // 
+            // Button_Launch_Manual
+            // 
+            this.Button_Launch_Manual.BackColor = System.Drawing.SystemColors.Control;
+            this.Button_Launch_Manual.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.Button_Launch_Manual.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Button_Launch_Manual.Name = "Button_Launch_Manual";
+            this.Button_Launch_Manual.Size = new System.Drawing.Size(104, 22);
+            this.Button_Launch_Manual.Text = "How do I update?";
+            this.Button_Launch_Manual.Click += new System.EventHandler(this.Button_Open_Manual_Click);
             // 
             // MainScreen
             // 
@@ -205,7 +217,8 @@
         private System.Windows.Forms.Button STOP_TEST;
         private System.Windows.Forms.ToolStrip UpperBar;
         private System.Windows.Forms.ToolStripButton Button_Update_Check;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton Button_Show_Authors;
+        private System.Windows.Forms.ToolStripButton Button_Launch_Manual;
     }
 }
 
