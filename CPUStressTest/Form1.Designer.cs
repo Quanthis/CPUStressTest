@@ -44,7 +44,8 @@
             // 
             // Label_ThreadsNoInf
             // 
-            this.Label_ThreadsNoInf.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Label_ThreadsNoInf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Label_ThreadsNoInf.BackColor = System.Drawing.Color.DarkGray;
             this.Label_ThreadsNoInf.Location = new System.Drawing.Point(270, 37);
             this.Label_ThreadsNoInf.Name = "Label_ThreadsNoInf";
             this.Label_ThreadsNoInf.Size = new System.Drawing.Size(230, 25);
@@ -54,18 +55,21 @@
             // 
             // TextBox_NumberOfThreads
             // 
+            this.TextBox_NumberOfThreads.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBox_NumberOfThreads.BackColor = System.Drawing.Color.Linen;
             this.TextBox_NumberOfThreads.Location = new System.Drawing.Point(533, 37);
             this.TextBox_NumberOfThreads.MaximumSize = new System.Drawing.Size(200, 25);
             this.TextBox_NumberOfThreads.MaxLength = 5;
             this.TextBox_NumberOfThreads.MinimumSize = new System.Drawing.Size(50, 25);
             this.TextBox_NumberOfThreads.Name = "TextBox_NumberOfThreads";
-            this.TextBox_NumberOfThreads.Size = new System.Drawing.Size(50, 25);
+            this.TextBox_NumberOfThreads.Size = new System.Drawing.Size(50, 21);
             this.TextBox_NumberOfThreads.TabIndex = 1;
             this.TextBox_NumberOfThreads.Text = "1";
             // 
             // Label_RunningTestsInf
             // 
-            this.Label_RunningTestsInf.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Label_RunningTestsInf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Label_RunningTestsInf.BackColor = System.Drawing.Color.DarkGray;
             this.Label_RunningTestsInf.Location = new System.Drawing.Point(270, 83);
             this.Label_RunningTestsInf.Name = "Label_RunningTestsInf";
             this.Label_RunningTestsInf.Size = new System.Drawing.Size(181, 25);
@@ -75,7 +79,9 @@
             // 
             // Label_Running_Tests
             // 
-            this.Label_Running_Tests.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Label_Running_Tests.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Label_Running_Tests.BackColor = System.Drawing.Color.Linen;
+            this.Label_Running_Tests.Cursor = System.Windows.Forms.Cursors.No;
             this.Label_Running_Tests.Location = new System.Drawing.Point(483, 83);
             this.Label_Running_Tests.Name = "Label_Running_Tests";
             this.Label_Running_Tests.Size = new System.Drawing.Size(100, 25);
@@ -85,6 +91,7 @@
             // 
             // START_TEST
             // 
+            this.START_TEST.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.START_TEST.BackColor = System.Drawing.Color.DarkRed;
             this.START_TEST.Cursor = System.Windows.Forms.Cursors.Hand;
             this.START_TEST.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
@@ -99,7 +106,9 @@
             // 
             // Label_GeneralWarning
             // 
-            this.Label_GeneralWarning.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Label_GeneralWarning.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Label_GeneralWarning.BackColor = System.Drawing.Color.SlateGray;
+            this.Label_GeneralWarning.ForeColor = System.Drawing.Color.Gainsboro;
             this.Label_GeneralWarning.Location = new System.Drawing.Point(191, 151);
             this.Label_GeneralWarning.Name = "Label_GeneralWarning";
             this.Label_GeneralWarning.Size = new System.Drawing.Size(421, 161);
@@ -108,6 +117,7 @@
             // 
             // STOP_TEST
             // 
+            this.STOP_TEST.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.STOP_TEST.BackColor = System.Drawing.Color.Green;
             this.STOP_TEST.Cursor = System.Windows.Forms.Cursors.Hand;
             this.STOP_TEST.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
@@ -155,9 +165,11 @@
             // 
             // MainScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackgroundImage = global::CPUStressTest.Properties.Resources.MoreFire;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(624, 321);
             this.Controls.Add(this.UpperBar);
             this.Controls.Add(this.STOP_TEST);
@@ -167,8 +179,11 @@
             this.Controls.Add(this.Label_RunningTestsInf);
             this.Controls.Add(this.TextBox_NumberOfThreads);
             this.Controls.Add(this.Label_ThreadsNoInf);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(640, 360);
             this.Name = "MainScreen";
             this.Text = "CPU Stress Test (by Quanthis) v1.1";
             this.Load += new System.EventHandler(this.Form1_Load);
