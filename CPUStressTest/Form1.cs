@@ -38,7 +38,7 @@ namespace CPUStressTest
 
                 while (true)
                 {
-                    await showStats.UpdateFile(cpuCounter.NextValue().ToString().Substring(0, 1) + "%");                    
+                    await showStats.UpdateFile(cpuCounter.NextValue().ToString().Substring(0, 2) + "%");                    
                     Thread.Sleep(500);
                 }
             });
